@@ -18,7 +18,7 @@ paper-toaster allows multiple paper-toast notifications to be visible at a singl
     <link rel="stylesheet" href="paper-toaster.css" />
     <div vertical layout class="toast_container">
     <template repeat="{{b in bread}}">
-      <paper-toast class="toast" text="{{b[0]}}" duration="{{b[1]}}" opened="{{b[2]}}" responseWidth="{{b[3]}}" swipeDisabled="{{b[4]}}" autoCloseDisabled="{{b[5]}}" on-core-overlay-close-completed="{{removeMe}}" count="{{b[6]}}"></paper-toast>
+      <paper-toast class="toast" text="{{ b.text }}" duration="{{ b.duration }}" opened="{{ b.opened }}" responseWidth="{{ b.responseWidth }}" swipeDisabled="{{ b.swipeDisabled }}" autoCloseDisabled="{{ b.autoCloseDisabled }}" on-core-overlay-close-completed="{{removeMe}}" count="{{b.counter}}"></paper-toast>
     </template>
   </div>
   </template>
@@ -55,13 +55,13 @@ paper-toaster allows multiple paper-toast notifications to be visible at a singl
         swipeDisabled = typeof swipeDisabled !== 'undefined' ? swipeDisabled : false;
         autoCloseDisabled = typeof autoCloseDisabled !== 'undefined' ? autoCloseDisabled : false;
         var counter = this.count++;
-        var item = [text, duration, opened, responseWidth, swipeDisabled, autoCloseDisabled, counter];
+        var item = {text: text,duration: duration,opened: opened,responseWidth: responseWidth,swipeDisabled: swipeDisabled,autoCloseDisabled: autoCloseDisabled,counter: counter};
         this.bread.push(item);
       },
       removeMe: function(e){
         var removeNum = +e.path[2].getAttribute('count');
         for(var x = 0, len = this.bread.length; x < len; x++){
-          if(this.bread[x][6] === removeNum){
+          if(this.bread[x].counter === removeNum){
             this.bread.splice(x,1);
             return;
           }
