@@ -1,0 +1,14 @@
+:host {
+  display: block;
+}
+.toast{
+  bottom: auto;
+  left: auto;
+  position: relative;
+  margin-top: 10px;
+}
+.toast_container{
+  bottom: 12px;
+  left: 12px;
+  position: fixed;
+}

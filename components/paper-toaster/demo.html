@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <title>paper-toaster Demo</title>
+
+  <script src="../webcomponentsjs/webcomponents.min.js"></script>
+  <link rel="import" href="paper-toaster.html">
+  <style>
+  .button{
+    padding:5px;
+    width: 120px;
+    background-color: #2244BB;
+    color: #fff;
+    border-radius:5px;
+    cursor: pointer;
+  }
+  .button:hover{
+    background-color: #4466AA;
+  }
+  </style>
+</head>
+<body unresolved>
+
+  <div class="button" onclick="document.querySelector('#toaster').pop()">Make some toast</div>
+
+  <paper-toaster id="toaster"></paper-toaster>
+
+</body>
+</html>
